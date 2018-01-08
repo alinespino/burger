@@ -1,0 +1,59 @@
+
+{{!--Setup the index.handlebars to have the template that Handlebars 
+can render onto.--}}
+
+
+
+<img src="https://cdn.dribbble.com/users/4852/screenshots/2215803/happy-national-burger-day_1x.jpg" alt="Smiley burger">
+
+<h1>Eat-Da-Burger!</h1>
+
+
+<h2>Burger Menu</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{> burgers/burger-block devoured=false}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+
+<h2>Burgers eaten!</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      {{> burgers/burger-block devoured=true}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+
+
+{{!-- Add a Burger --}}
+
+<form class="create-form">
+
+  {{!-- <div class="form-group">
+    <label for="devoured">Eaten?</label><br>
+    <input type="radio" name="devoured" value="1" checked> Sleepy!<br>
+    <input type="radio" name="devoured" value="0"> Awake
+  </div> --}}
+
+  <div class="form-group">
+
+    <input type="text" id="burger-name" name="name">
+  </div>
+
+</form>
+
+
+{{!--Create a button that will submit the user input 
+into the database. --}}
+
+  <button type="submit" id="submit-btn" >Submit</button>
+
+
+<p>Enter a burger you want to eat Click the "Submit" button.</p>
